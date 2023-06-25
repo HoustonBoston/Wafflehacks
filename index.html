@@ -9,34 +9,10 @@
 
   <div>
     <title>Immigration Helper</title>
+    <!-- link style to an external file-->
+    <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-        }
-        .form-container {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-        label, input, button {
-            display: block;
-            margin-bottom: 10px;
-        }
-        button {
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        
-        #searchResults {
-            text-align: center;
-        }
+       
     </style>
 </head>
 <body>
@@ -51,36 +27,7 @@
 
     <div id="searchResults" ></div>
     
-    <script>
-
-        const countries = [
-     "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "India"// Add more countries here
-     ];
-
-function search() {
-  const input = document.getElementById("destinationCountry");
-  const keyword = input.value.toLowerCase();
-  const searchResults = document.getElementById("searchResults");
-  searchResults.innerHTML = "";
-
-  // Perform search
-  const matches = countries.filter(country => country.toLowerCase().includes(keyword));
-  
-  // Display search results
-  if (matches.length > 0) {
-    matches.forEach(match => {
-      const resultItem = document.createElement("p");
-      resultItem.textContent = match;
-      searchResults.appendChild(resultItem);
-    });
-  } else {
-    const noResults = document.createElement("p");
-    noResults.textContent = "No matching countries found.";
-    searchResults.appendChild(noResults);
-  }
-  
-}
-        
+    <script src = 'script.js'>
     </script>
   </div>
 </body>
