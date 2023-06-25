@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Country Search Engine</title>
+
+</head>
+<body>
+  
+
+  <div>
+    <title>Immigration Helper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label, input, button {
+            display: block;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        #searchResults {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Immigration Helper</h1>
+    <div class="form-container">
+        <label for="passportNumber">Passport Number:</label>
+        <input type="text" id="passportNumber">
+        <label for="destinationCountry">Destination Country:</label>
+        <input type="text" id="destinationCountry" oninput="search()">
+        <button onclick="checkImmigration()">Check Immigration</button>
+    </div>
+
+    <div id="searchResults" ></div>
+    
+    <script>
+
+        const countries = [
+     "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "India"// Add more countries here
+     ];
+
+function search() {
+  const input = document.getElementById("destinationCountry");
+  const keyword = input.value.toLowerCase();
+  const searchResults = document.getElementById("searchResults");
+  searchResults.innerHTML = "";
+
+  // Perform search
+  const matches = countries.filter(country => country.toLowerCase().includes(keyword));
+  
+  // Display search results
+  if (matches.length > 0) {
+    matches.forEach(match => {
+      const resultItem = document.createElement("p");
+      resultItem.textContent = match;
+      searchResults.appendChild(resultItem);
+    });
+  } else {
+    const noResults = document.createElement("p");
+    noResults.textContent = "No matching countries found.";
+    searchResults.appendChild(noResults);
+  }
+  
+}
+        
+    </script>
+  </div>
+</body>
+</html>
