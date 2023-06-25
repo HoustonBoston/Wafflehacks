@@ -1,6 +1,9 @@
-const countries = [
-    "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "India"// Add more countries here
-    ];
+import countries from "./countries.js";
+
+// variable country_list with an array of all countries
+const country_list = countries;
+console.log(country_list);
+
 
 function search() {
  const input = document.getElementById("destinationCountry");
@@ -9,7 +12,7 @@ function search() {
  searchResults.innerHTML = "";
 
  // Perform search
- const matches = countries.filter(country => country.toLowerCase().includes(keyword));
+ const matches = country_list.filter(country => country.toLowerCase().includes(keyword));
  
  // Display search results
  if (matches.length > 0) {
